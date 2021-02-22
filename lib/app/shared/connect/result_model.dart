@@ -22,8 +22,6 @@ class ResultModel {
   }
 
   factory ResultModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ResultModel(
       map['success'],
       map['errors'],

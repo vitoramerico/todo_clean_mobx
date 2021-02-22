@@ -22,7 +22,7 @@ abstract class _CustomerAddStoreBase extends Disposable with Store {
   final tecAddressState = TextEditingController();
   final tecAddressZipCode = TextEditingController();
 
-  List<ReactionDisposer> _disposers;
+  late List<ReactionDisposer> _disposers;
 
   @observable
   String id = '';

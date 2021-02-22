@@ -1,13 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'app_widget.dart';
 import 'modules/customer/presenter/customer_module.dart';
 import 'shared/connect/custom_connect.dart';
 import 'shared/connect/custom_connect_interface.dart';
 
-class AppModule extends MainModule {
+class AppModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => Dio()),
@@ -22,7 +20,4 @@ class AppModule extends MainModule {
       transition: TransitionType.rightToLeft,
     ),
   ];
-
-  @override
-  final Widget bootstrap = AppWidget();
 }

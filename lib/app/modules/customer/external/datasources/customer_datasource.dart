@@ -28,7 +28,7 @@ class CustomerDatasource implements ICustomerDatasource {
 
       var resultData = ResultModel.fromMap(result.data);
 
-      return CustomerModel.fromMap(resultData.data);
+      return CustomerModel.fromJson(resultData.data);
     } on DioError catch (error) {
       if (error.response?.data is ResultModel) throw new ArgumentError(error.response.data.errorText);
       throw error.response;
@@ -54,7 +54,7 @@ class CustomerDatasource implements ICustomerDatasource {
 
       List<dynamic> data = resultData.data;
 
-      return data.map((v) => CustomerModel.fromMap(v)).toList();
+      return data.map((v) => CustomerModel.fromJson(v)).toList();
     } on DioError catch (error) {
       if (error.response?.data is ResultModel) throw new ArgumentError(error.response.data.errorText);
       throw error.response;

@@ -18,11 +18,11 @@ class _CustomerLstPageState extends ModularState<CustomerLstPage, CustomerLstCon
         centerTitle: true,
       ),
       body: ListCustomerWidget(
-        controller: controller,
+        controller: store,
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: controller.openPageCustomerAdd,
+        onPressed: store.openPageCustomerAdd,
       ),
     );
   }

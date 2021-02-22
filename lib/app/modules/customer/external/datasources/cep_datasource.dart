@@ -19,7 +19,7 @@ class CepDatasource implements ICepDatasource {
 
       var result = await client.get('https://viacep.com.br/ws/$cep/json');
 
-      return CepModel.fromMap(result.data);
+      return CepModel.fromJson(result.data);
     } on DioError catch (error) {
       if (error.response?.data is ResultModel) throw new ArgumentError(error.response.data.errorText);
       throw error.response;

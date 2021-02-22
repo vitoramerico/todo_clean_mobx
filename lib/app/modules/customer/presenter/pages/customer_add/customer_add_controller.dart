@@ -56,9 +56,11 @@ abstract class _CustomerAddControllerBase with Store {
   }
 
   Future<void> save() async {
-    if (!store.formKey.currentState.validate()) return;
+    var isValid = store.formKey.currentState?.validate() ?? false;
 
-    store.formKey.currentState.save();
+    if (!isValid) return;
+
+    store.formKey.currentState?.save();
 
     if (store.id.isEmpty)
       await _save();

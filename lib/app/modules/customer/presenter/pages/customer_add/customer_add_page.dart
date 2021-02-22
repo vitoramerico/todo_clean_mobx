@@ -19,13 +19,13 @@ class _CustomerAddPageState extends ModularState<CustomerAddPage, CustomerAddCon
         centerTitle: true,
       ),
       body: Form(
-        key: controller.store.formKey,
-        child: PagesWidget(controller: controller),
+        key: store.store.formKey,
+        child: PagesWidget(controller: store),
       ),
-      bottomNavigationBar: BottomNavigationBarWidget(controller: controller),
+      bottomNavigationBar: BottomNavigationBarWidget(controller: store),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.save),
-        onPressed: controller.save,
+        onPressed: store.save,
       ),
     );
   }

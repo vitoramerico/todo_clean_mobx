@@ -6,7 +6,7 @@ import 'pages/customer_add/customer_add_page.dart';
 import 'pages/customer_lst/bindings/customer_lst_binding.dart';
 import 'pages/customer_lst/customer_lst_page.dart';
 
-class CustomerModule extends ChildModule {
+class CustomerModule extends Module {
   @override
   final List<Bind> binds = CustomerLstBinding.binds + CustomerAddBinding.binds;
 

@@ -24,6 +24,7 @@ class CustomerAddBinding {
     Bind.lazySingleton<ICustomerGetById>((i) => CustomerGetById(i.get())),
     Bind.lazySingleton<ICepGet>((i) => CepGet(i.get())),
     Bind.factory((i) => CustomerAddStore()),
-    Bind.lazySingleton((i) => CustomerAddController(i.get(), i.get(), i.get(), i.get(), i.get(), i.args.data))
+    Bind.lazySingleton(
+        (i) => CustomerAddController(i.get(), i.get(), i.get(), i.get(), i.get(), i.args?.data))
   ];
 }

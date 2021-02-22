@@ -16,7 +16,7 @@ abstract class _CustomerLstControllerBase extends Disposable with Store {
   final ICustomerGetAll _customerGetAll;
   final CustomerLstStore store;
 
-  List<ReactionDisposer> _disposers;
+  late List<ReactionDisposer> _disposers;
 
   _CustomerLstControllerBase(this._customerGetAll, this.store) {
     setupReactions();
@@ -31,12 +31,12 @@ abstract class _CustomerLstControllerBase extends Disposable with Store {
   void setupReactions() {
     _disposers = [
       reaction((_) => store.paginationFilter, (PaginationFilter v) {
-        _init();
+        _getData();
       }),
     ];
   }
 
-  Future<void> _init() async {
+  Future<void> _getData() async {
     var result = await _customerGetAll(store.page, store.limit);
 
     result.fold((error) {
@@ -50,9 +50,9 @@ abstract class _CustomerLstControllerBase extends Disposable with Store {
     });
   }
 
-  void openPageCustomerAdd({CustomerEntity value}) {
+  void openPageCustomerAdd({CustomerEntity? value}) {
     Modular.to.pushNamed(AppRoutes.DETAILS, arguments: value?.id).then((value) {
-      if (value != null && value) {
+      if (value != null && value is bool && value) {
         _changeFirstPage();
       }
     });

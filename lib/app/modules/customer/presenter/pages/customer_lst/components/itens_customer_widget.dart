@@ -4,11 +4,11 @@ import '../../../../domain/entities/customer_entity.dart';
 
 class ItensCustomerWidget extends StatelessWidget {
   final CustomerEntity customerEntity;
-  final Function(CustomerEntity) onPressed;
+  final Function(CustomerEntity)? onPressed;
 
   const ItensCustomerWidget({
-    Key key,
-    @required this.customerEntity,
+    Key? key,
+    required this.customerEntity,
     this.onPressed,
   }) : super(key: key);
 
@@ -18,7 +18,7 @@ class ItensCustomerWidget extends StatelessWidget {
       leading: CircleAvatar(child: const Icon(Icons.person)),
       trailing: IconButton(
         icon: const Icon(Icons.edit),
-        onPressed: () => onPressed(customerEntity),
+        onPressed: () => onPressed?.call(customerEntity),
       ),
       title: Text(customerEntity.name),
       subtitle: Row(

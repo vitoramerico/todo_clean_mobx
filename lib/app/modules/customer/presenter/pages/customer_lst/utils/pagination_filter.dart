@@ -7,7 +7,7 @@ class PaginationFilter {
   @override
   String toString() => 'PaginationFilter(page: $page, limit: $limit)';
 
-  @override
+  /*@override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
@@ -15,5 +15,5 @@ class PaginationFilter {
   }
 
   @override
-  int get hashCode => page.hashCode ^ limit.hashCode;
+  int get hashCode => page.hashCode ^ limit.hashCode;*/
 }
